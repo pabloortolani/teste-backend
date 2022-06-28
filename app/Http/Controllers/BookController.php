@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\StatusReturn;
-use App\Http\Requests\{UserCreateRequest, UserUpdateRequest};
-use App\Services\UserService;
+use App\Services\BookService;
+use App\Http\Requests\{BookRequest};
 use Exception;
 
-class UserController extends Controller
+class BookController extends Controller
 {
-    public function __construct(private UserService $service) {}
+    public function __construct(private BookService $service) {}
 
-    public function store(UserCreateRequest $request)
+    public function store(BookRequest $request)
     {
         try {
             return response(
@@ -41,7 +41,7 @@ class UserController extends Controller
         }
     }
 
-    public function update(UserUpdateRequest $request, $id)
+    public function update(BookRequest $request, $id)
     {
         try {
             return response(

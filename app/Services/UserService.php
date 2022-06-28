@@ -14,10 +14,16 @@ class UserService
     /**
      * @throws Exception
      */
-    public function create(array $data): User
+    public function create(array $data): array
     {
         try {
-            return $this->userRepository->create($data);
+            $user = $this->userRepository->create($data);
+
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email
+            ];
         } catch (Exception $e) {
             throw new Exception("Erro ao criar usuário!", StatusReturn::ERROR);
         }
@@ -34,7 +40,7 @@ class UserService
         return $user;
     }
 
-    public function update(array $data, int $id): bool
+    public function update(array $data, int $id): array
     {
         $user = $this->userRepository->find($id);
 
@@ -42,7 +48,15 @@ class UserService
             throw new Exception("Usuário não encontrado!", StatusReturn::NOT_FOUND);
         }
 
-        return $this->userRepository->update($user, $data);
+        $this->userRepository->update($user, $data);
+
+        $user = $user->refresh();
+
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email
+        ];
     }
 
     public function destroy(int $id): bool
