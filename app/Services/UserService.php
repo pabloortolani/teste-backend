@@ -29,6 +29,9 @@ class UserService
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function find(int $id): ?User
     {
         $user = $this->userRepository->find($id);
@@ -40,6 +43,9 @@ class UserService
         return $user;
     }
 
+    /**
+     * @throws Exception
+     */
     public function update(array $data, int $id): array
     {
         $user = $this->userRepository->find($id);
@@ -59,6 +65,9 @@ class UserService
         ];
     }
 
+    /**
+     * @throws Exception
+     */
     public function destroy(int $id): bool
     {
         $user = $this->userRepository->find($id);

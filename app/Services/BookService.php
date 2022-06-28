@@ -33,6 +33,9 @@ class BookService
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function find(int $id): ?array
     {
         $book = $this->bookRepository->find($id);
@@ -79,6 +82,9 @@ class BookService
         ];
     }
 
+    /**
+     * @throws Exception
+     */
     public function destroy(int $id): bool
     {
         $book = $this->bookRepository->find($id);
@@ -90,6 +96,9 @@ class BookService
         return $this->bookRepository->delete($book);
     }
 
+    /**
+     * @throws Exception
+     */
     private function getLoadStatus(string $name): ?LoanStatus
     {
         $loanStatus = $this->loanStatusRepository->findByName($name);
@@ -100,6 +109,9 @@ class BookService
         return $loanStatus;
     }
 
+    /**
+     * @throws Exception
+     */
     private function validateGenre(int $id): void
     {
         $genre = $this->genreRepository->find($id);
