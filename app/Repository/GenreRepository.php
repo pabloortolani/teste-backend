@@ -14,4 +14,9 @@ class GenreRepository implements GenreRepositoryInterface
     {
         return $this->model->find($id);
     }
+
+    public function findByName(string $name): ?Genre
+    {
+        return $this->model->where('name', $name)->first();
+    }
 }

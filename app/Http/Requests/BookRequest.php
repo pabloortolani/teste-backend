@@ -19,7 +19,7 @@ class BookRequest extends FormRequest
             'author' => 'required|string',
             'loan_status' => 'required|string|in:'.LoanStatus::EMPRESTADO.','.LoanStatus::DISPONIVEL.",".
                 strtolower(LoanStatus::EMPRESTADO).",".strtolower(LoanStatus::DISPONIVEL),
-            'genre_id' => 'integer'
+            'genre' => 'string'
         ];
     }
 
@@ -33,7 +33,7 @@ class BookRequest extends FormRequest
             'loan_status.required' => 'Obrigatório informar o status do emprestimo.',
             'loan_status.string' => 'Status do emprestimo inválido.',
             'loan_status.in' => 'Status do emprestimo inválido.',
-            'genre_id.integer' => 'Gênero inválido.'
+            'genre_id.string' => 'Gênero inválido.'
         ];
     }
 }
