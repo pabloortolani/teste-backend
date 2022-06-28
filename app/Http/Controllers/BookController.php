@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\StatusReturn;
 use App\Services\BookService;
-use App\Http\Requests\{BookRequest};
+use App\Http\Requests\BookRequest;
 use Exception;
 
 class BookController extends Controller

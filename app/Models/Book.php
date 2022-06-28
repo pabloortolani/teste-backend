@@ -9,6 +9,10 @@ class Book extends Model
 {
     use HasFactory, SoftDeletes;
 
+    CONST DISPONIVEL = 'Disponível';
+    CONST EMPRESTADO = 'Emprestado';
+    CONST STATUS_AVAILABLE_LOAN = [self::DISPONIVEL];
+
     protected $fillable = [
         'name',
         'author',

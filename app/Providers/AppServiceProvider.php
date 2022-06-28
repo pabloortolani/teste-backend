@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Interfaces\BookRepositoryInterface;
 use App\Interfaces\GenreRepositoryInterface;
+use App\Interfaces\LoanRepositoryInterface;
 use App\Interfaces\LoanStatusRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
 use App\Repository\BookRepository;
 use App\Repository\GenreRepository;
+use App\Repository\LoanRepository;
 use App\Repository\LoanStatusRepository;
 use App\Repository\UserRepository;
 use Illuminate\Support\ServiceProvider;
@@ -39,6 +41,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             GenreRepositoryInterface::class,
             GenreRepository::class
+        );
+
+        $this->app->bind(
+            LoanRepositoryInterface::class,
+            LoanRepository::class
         );
     }
 
